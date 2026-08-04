@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens (Light Theme) ────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --color-bg-base:        #f8fafc; /* Slate 50 */
+  --color-bg-surface:     #ffffff; /* White */
+  --color-bg-elevated:    #f1f5f9; /* Slate 100 */
+  --color-bg-overlay:     #e2e8f0; /* Slate 200 */
+
+  /* Borders */
+  --color-border-subtle:  #e2e8f0; /* Slate 200 */
+  --color-border-default: #cbd5e1; /* Slate 300 */
+  --color-border-strong:  #94a3b8; /* Slate 400 */
+
+  /* Text */
+  --color-text-primary:   #0f172a; /* Slate 900 */
+  --color-text-secondary: #475569; /* Slate 600 */
+  --color-text-muted:     #64748b; /* Slate 500 */
+  --color-text-inverse:   #ffffff;
+
+  /* Accent */
+  --color-accent-blue:    #2563eb; /* Blue 600 */
+  --color-accent-blue-dim: #1d4ed8; /* Blue 700 */
+  --color-accent-cyan:    #0891b2; /* Cyan 600 */
+
+  /* Status */
+  --color-success:        #16a34a; /* Green 600 */
+  --color-success-dim:    #15803d;
+  --color-warning:        #d97706; /* Amber 600 */
+  --color-warning-dim:    #b45309;
+  --color-critical:       #dc2626; /* Red 600 */
+  --color-critical-dim:   #b91c1c;
+  --color-info:           #2563eb;
+
+  /* Sidebar */
+  --sidebar-width:        240px;
+  --sidebar-collapsed:    64px;
+  --topbar-height:        56px;
+
+  /* Typography */
+  --font-mono:            "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+  --font-sans:            "Inter", system-ui, sans-serif;
+
+  /* Spacing rhythm */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0 !important; /* Enforce sharp edges project-wide */
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar Styling ──────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+/* ─── Utility Animations ─────────────────────────────────────────────────── */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-8px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.animate-skeleton {
+  animation: skeleton-pulse 1.8s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out both;
+}
+
+.animate-slide-in {
+  animation: slide-in-left 0.2s ease-out both;
+}
