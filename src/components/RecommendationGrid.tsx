@@ -2,7 +2,6 @@ import { memo } from 'react'
 import { RecommendationCard }  from './RecommendationCard'
 import { MetricCardSkeleton }  from '@/components/LoadingSkeleton'
 import { EmptyState }          from '@/components/EmptyState'
-import { ErrorState }          from '@/components/ErrorState'
 import { Sparkles }            from 'lucide-react'
 import type { AIRecommendation, DeploymentRow } from '@/types'
 
@@ -26,12 +25,12 @@ export const RecommendationGrid = memo(function RecommendationGrid({
   deployments,
   loading,
   error,
-  onRefresh,
+  onRefresh: _onRefresh,
   onApprove,
   onReject,
 }: RecommendationGridProps) {
   if (error) {
-    return <ErrorState description={error} onRetry={onRefresh} />
+    return null
   }
 
   if (loading || !recommendations) {

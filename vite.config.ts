@@ -26,6 +26,21 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/analyze': {
+        target: process.env.VITE_BACKEND_TARGET || 'http://k8s-kubeai-kubeai-45a841c0cc-1378252586.us-east-1.elb.amazonaws.com',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/execute': {
+        target: process.env.VITE_BACKEND_TARGET || 'http://k8s-kubeai-kubeai-45a841c0cc-1378252586.us-east-1.elb.amazonaws.com',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/executions': {
+        target: process.env.VITE_BACKEND_TARGET || 'http://k8s-kubeai-kubeai-45a841c0cc-1378252586.us-east-1.elb.amazonaws.com',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
   build: {

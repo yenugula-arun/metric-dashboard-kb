@@ -1,11 +1,12 @@
 import { Sparkles, RefreshCw } from 'lucide-react'
-import { useRecommendations } from '@/hooks/useRecommendations'
-import { useDeployments }     from '@/hooks/useDeployments'
-import { useAWSContext }      from '@/context/AWSContext'
-import { RecommendationGrid } from '@/components/RecommendationGrid'
-import { Breadcrumb }         from '@/components/Breadcrumb'
-import { ROUTES }             from '@/constants/routes'
-import { cn }                 from '@/utils/cn'
+import { useRecommendations }    from '@/hooks/useRecommendations'
+import { useDeployments }        from '@/hooks/useDeployments'
+import { useAWSContext }         from '@/context/AWSContext'
+import { RecommendationGrid }   from '@/components/RecommendationGrid'
+import { AgentExecutionPanel }  from '@/components/AgentExecutionPanel'
+import { Breadcrumb }           from '@/components/Breadcrumb'
+import { ROUTES }               from '@/constants/routes'
+import { cn }                   from '@/utils/cn'
 
 export default function AIRecommendationsPage() {
   const { roleArn, connection } = useAWSContext()
@@ -44,6 +45,12 @@ export default function AIRecommendationsPage() {
           Refresh
         </button>
       </div>
+
+      {/* AI Agent Cluster Optimizer */}
+      <AgentExecutionPanel
+        clusterName={activeClusterName}
+        roleArn={roleArn}
+      />
 
       <RecommendationGrid
         recommendations={recs}

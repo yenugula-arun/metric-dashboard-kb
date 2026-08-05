@@ -49,4 +49,10 @@ export const API_ROUTES = {
   ACTIVITY: {
     GET_ALL: '/activity',
   },
+
+  AGENT: {
+    ANALYZE:       '/analyze',
+    EXECUTE:       '/execute',
+    GET_EXECUTION: (operationId: string) => `/executions/${operationId}`,
+  },
 } as const
